@@ -1,0 +1,224 @@
+:root {
+    --link-default-color: #f6fff6;
+    --link-trigger-color: #e6f8e6;
+    --separator--lime: #e6d8c6;
+}
+
+body {
+    margin: 0;
+}
+
+a:any-link {
+    color: var(--link-default-color);
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+}
+
+.background {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.before--darken {
+    position: relative;
+    z-index: 0;
+}
+
+.before--darken::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .2);
+    z-index: -1;
+}
+
+header {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url('/static/img/bg.jpg');
+}
+
+.pos--abs {
+    position: absolute;
+}
+
+nav {
+    width: 100vw;
+    background-image: linear-gradient(0deg, transparent 0%, rgba(20, 20, 20, .5) 100%);
+    padding: 1em 2em;
+    box-sizing: border-box;
+}
+
+.float--left {
+    float: left;
+}
+
+.glyph {
+    display: inline-block;
+    height: 4em;
+    width: 5em;
+    background: url('/static/img/glyph.svg') no-repeat center;
+    background-size: contain;
+}
+
+.float--right {
+    float: right;
+}
+
+nav ul {
+    list-style: none;
+    user-select: none;
+}
+
+nav li {
+    display: inline-block;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 0 .3em -.5em .3em;
+    text-shadow: 0 0 10px black;
+    user-select: auto;
+}
+
+nav li:hover {
+    border-bottom: 5px solid var(--link-trigger-color);
+}
+
+nav li.reset--hover:hover {
+    border-bottom: none;
+}
+
+.sep--vertical {
+    display: block;
+    width: 3px;
+    height: 2em;
+}
+
+.sep--lime {
+    background-color: var(--separator--lime);
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+}
+
+#hdr-title {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2em;
+}
+
+#hdr-title > p {
+    margin-bottom: 0.5em;
+}
+
+.size--h1 {
+    font-size: 2em;
+}
+
+.size--h2 {
+    font-size: 1.5em;
+}
+
+.marked--black {
+    color: aliceblue;
+    background-color: black;
+    padding: 7px;
+}
+
+#content {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#grid {
+    display: grid;
+    grid: min(22vw, 40vh) min(22vw, 40vh) / min(22vw, 40vh) min(22vw, 40vh);
+    padding: 6em 2em 2em 0;
+}
+
+.card {
+    position: relative;
+    color: aliceblue;
+    font-weight: bold;
+    background-color: rgba(32, 32, 32, 0.8);
+    border-radius: 10px;
+    margin: 0.5em;
+    padding: 10px;
+    box-shadow: 1px 1px 5px black;
+    box-sizing: border-box;
+    transition: 150ms ease-out transform;
+}
+
+.card:hover, .card:focus {
+    transform: scale(1.02);
+}
+
+.card > span {
+    font-size: 1.5em;
+}
+
+.card > p {
+    margin: 1em 0;
+}
+
+.card > div {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+}
+
+.card > div > span {
+    margin-right: 1em;
+}
+
+.before--circle {
+    line-height: 1.25;
+}
+
+.before--circle::before {
+    content: '';
+    display: inline-block;
+    border-radius: 50%;
+    width: 1em;
+    height: 1em;
+    margin-right: 5px;
+    margin-bottom: -1px;
+}
+
+.b-circle--blue::before {
+    background-color: steelblue;
+}
+
+.b-circle--violet::before {
+    background-color: blueviolet;
+}
+
+.before--icon::before {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background: url('/static/img/star.svg') no-repeat center;
+    background-size: contain;
+    margin-right: 5px;
+    margin-bottom: -1px;
+}
+
+.card > div > span.b-icon--star {
+    opacity: .7;
+}
