@@ -44,22 +44,37 @@ header {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-image: url('/static/img/bg.jpg');
-}
-
-.pos--abs {
-    position: absolute;
+    background-image: url('/static/img/bg.webp');
 }
 
 nav {
+    display: flex;
+    flex-direction: column;
     width: 100vw;
     background-image: linear-gradient(0deg, transparent 0%, rgba(20, 20, 20, .5) 100%);
-    padding: 1em 2em;
+    padding: 1em 2em 0 2em;
     box-sizing: border-box;
+}
+@media screen and (min-width: 1024px) {
+    nav {
+        display: block;
+        position: absolute;
+        padding: 1em 2em;
+    }
 }
 
 .float--left {
-    float: left;
+    display: flex;
+    justify-content: center;
+}
+@media screen and (min-width: 1024px) {
+    .float--left {
+        float: left;
+    }
+
+    .float--right {
+        float: right;
+    }
 }
 
 .glyph {
@@ -70,30 +85,57 @@ nav {
     background-size: contain;
 }
 
-.float--right {
-    float: right;
-}
-
 nav ul {
+    text-align: center;
+    line-height: 2.3;
+    padding: 0;
     list-style: none;
     user-select: none;
 }
+@media screen and (min-width: 1024px) {
+    nav ul {
+        line-height: 1;
+        padding: unset;
+    }
+}
 
 nav li {
+    --border-width: 5px;
     display: inline-block;
     font-size: 1.1em;
     font-weight: bold;
-    margin: 0 .3em -.5em .3em;
+    margin: 0 .3em var(--border-width) .3em;
     text-shadow: 0 0 10px black;
     user-select: auto;
 }
+@media screen and (min-width: 1024px) {
+    nav li {
+        margin-bottom: -.5em;
+    }
+}
 
 nav li:hover {
-    border-bottom: 5px solid var(--link-trigger-color);
+    margin-bottom: 0;
+    border-bottom: var(--border-width) solid var(--link-trigger-color);
+}
+
+nav li.reset--hover {
+    display: none;
+}
+@media screen and (min-width: 1024px) {
+    nav li.reset--hover {
+        display: inline-block;
+    }
 }
 
 nav li.reset--hover:hover {
+    margin-bottom: var(--border-width);
     border-bottom: none;
+}
+@media screen and (min-width: 1024px) {
+    nav li.reset--hover:hover {
+        margin-bottom: -.5em;
+    }
 }
 
 .sep--vertical {
@@ -102,34 +144,56 @@ nav li.reset--hover:hover {
     height: 2em;
 }
 
-.sep--lime {
-    background-color: var(--separator--lime);
+.sep--light-brown {
+    background-color: var(--separator--light-brown);
 }
 
 main {
     flex-grow: 1;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@media screen and (min-width: 1024px) {
+    main {
+        flex-direction: unset;
+        align-items: unset;
+    }
 }
 
 #hdr-title {
     flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 2em;
+    padding: .5em .5em .5em 1em;
+}
+@media screen and (min-width: 1024px) {
+    #hdr-title {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 1em;
+    }
 }
 
 #hdr-title > p {
-    margin-bottom: 0.5em;
+    margin-bottom: .5em;
 }
 
 .size--h1 {
-    font-size: 2em;
+    font-size: 1.8em;
 }
 
 .size--h2 {
-    font-size: 1.5em;
+    font-size: 1.2em;
+}
+@media screen and (min-width: 1024px) {
+    .size--h1 {
+        font-size: 2em;
+    }
+
+    .size--h2 {
+        font-size: 1.5em;
+    }
 }
 
 .marked--black {
@@ -141,23 +205,37 @@ main {
 #content {
     flex-grow: 1;
     display: flex;
-    align-items: center;
-    justify-content: center;
+}
+@media screen and (min-width: 1024px) {
+    #content {
+        align-items: center;
+        justify-content: center;
+    }
 }
 
+
 #grid {
-    display: grid;
-    grid: min(22vw, 40vh) min(22vw, 40vh) / min(22vw, 40vh) min(22vw, 40vh);
-    padding: 6em 2em 2em 0;
+    display: flex;
+    flex-direction: column;
+    padding: .5em 0em;
+    margin-bottom: 1em;
+}
+@media screen and (min-width: 1024px) {
+    #grid {
+        display: grid;
+        grid: min(24vw, 40vh) min(24vw, 40vh) / min(24vw, 40vh) min(24vw, 40vh);
+        padding: 6em 2em 2em 0;
+        margin-bottom: 0;
+    }
 }
 
 .card {
     position: relative;
     color: aliceblue;
     font-weight: bold;
-    background-color: rgba(32, 32, 32, 0.8);
+    background-color: rgba(32, 32, 32, .8);
     border-radius: 10px;
-    margin: 0.5em;
+    margin: 1.5em .5em -1em .5em;
     padding: 10px;
     box-shadow: 1px 1px 5px black;
     box-sizing: border-box;
@@ -173,7 +251,7 @@ main {
 }
 
 .card > p {
-    margin: 1em 0;
+    margin: 1em 0 2em 0;
 }
 
 .card > div {
