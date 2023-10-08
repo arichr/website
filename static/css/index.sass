@@ -1,0 +1,228 @@
+// Arisu Wonderland's website.
+// Copyright (C) 2023  Arisu Wonderland
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published
+// by the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+@use 'sass:math'
+@use 'sass:color'
+
+$faceIDColor: #ffd6e2d5
+$faceIDOpaqueColor: #ffd6e2
+
+@mixin container
+    background: #333
+    padding: 0.8em 0.8em 1em 1em
+    transition: 200ms ease-out background-color, 30ms linear outline
+
+@mixin container-hover
+    background-color: #303030
+    outline: 0.2em solid color.change($faceIDColor, $alpha: 0.5)
+    outline-offset: 0.1em
+
+html
+    scrollbar-color: $faceIDOpaqueColor #333
+    font-size: 1vw
+
+body
+    width: 100%
+    height: 100vh
+    color: whitesmoke
+    background: url('/bg.png') no-repeat top left
+    background-size: cover
+    margin: 0
+
+::-webkit-scrollbar
+    width: 1.3em
+
+::-webkit-scrollbar-track
+    background-color: #333
+
+::-webkit-scrollbar-thumb
+    background-color: $faceIDOpaqueColor
+    border: 0.4em solid #333
+
+a
+    color: inherit
+    text-decoration: none
+
+ul
+    margin: 0
+    padding: 0
+    list-style: none
+
+#faceid
+    $outlineWidth: 0.5em
+
+    display: block
+    position: fixed
+    outline: $outlineWidth solid $faceIDColor
+    outline-offset: 0.1em
+    border-radius: 50%
+
+    &, & > .arrow-1, & > .arrow-2
+        box-shadow: 0 0 3em 0 $faceIDOpaqueColor
+
+    & > .arrow-1
+        width: $outlineWidth
+        height: 8vw
+        position: relative
+        bottom: calc(-80% - 0.5em)
+        right: -95%
+        background-color: $faceIDColor
+        rotate: -45deg
+
+    & > .arrow-2
+        width: 19em
+        height: $outlineWidth
+        position: relative
+        bottom: calc(-74.5% - 0.5em)
+        right: calc(-106% - 0.5em + 0.5vw)
+        font-weight: bold
+        background-color: $faceIDColor
+
+        &::after
+            content: ''
+            display: block
+            width: $outlineWidth * 2
+            height: $outlineWidth * 2
+            position: relative
+            top: -1 * math.div($outlineWidth, 2)
+            border-radius: $outlineWidth * 2
+            background-color: $faceIDOpaqueColor
+
+    & > .arrow-text
+        position: relative
+        bottom: calc(-74.5% + 1.3em)
+        right: -109%
+        color: #ffe4e4
+        font-weight: bold
+        font-size: 2vw
+        text-shadow: 0 0.1em 1em black
+
+#social-grid
+    position: relative
+    bottom: calc(-60% - 4vh)
+    right: calc(-100% - 2vw)
+
+    a::after
+        content: ''
+        display: inline-block
+        width: 0.4em
+        height: 2em
+        position: relative
+        top: -0.9em
+        left: -3.8em
+        background-color: $faceIDOpaqueColor
+        border-radius: 1em
+
+    svg
+        @include container
+        width: 2em
+        height: 2em
+        fill: color.change($faceIDOpaqueColor, $lightness: 85%, $saturation: 10%)
+        border-radius: 0.5em
+
+    a:focus
+        outline: none
+
+    a:hover > svg, a:focus > svg
+        @include container-hover
+
+.container
+    @include container
+    display: block
+    border-radius: 1.5em
+    padding-top: 1em
+
+main
+    width: 26em
+    height: inherit
+    padding: 1em
+    box-sizing: border-box
+
+#git-grid
+    margin-bottom: 1em
+    letter-spacing: 0.002em
+
+    svg
+        width: 2em
+        height: 2em
+        vertical-align: middle
+
+    & > li
+        display: inline-block
+
+        &:hover > a
+            @include container-hover
+
+        & > a:focus
+            @include container-hover
+
+.github-svg
+    fill: color.change($faceIDOpaqueColor, $lightness: 99%)
+
+.gitlab-svg
+    fill: color.change($faceIDOpaqueColor, $hue: 40deg, $lightness: 70%)
+
+.codeberg-svg
+    fill: color.change($faceIDOpaqueColor, $hue: 180deg, $lightness: 90%)
+
+#repos-list
+    height: calc(100vh - 6em)
+    padding: 0.5em
+    padding-bottom: 1em
+    box-sizing: border-box
+    overflow: auto
+
+.card
+    margin-bottom: 0.3em
+    cursor: default
+
+    h2, p
+        margin: 0
+
+    p
+        margin-bottom: 0.2em
+
+    .language::before
+        content: ''
+        display: inline-block
+        width: 1em
+        height: 1em
+        margin: 0 0.2em -0.2em 0
+        border-radius: 50%
+
+    .providers
+        float: right
+
+        li
+            display: inline-block
+            margin-right: 0.1em
+
+        svg
+            width: 1.5em
+            height: 1.5em
+
+    &:hover, &:focus
+        @include container-hover
+
+
+.lang-go::before
+    background-color: cyan
+
+.lang-python::before
+    background-color: #ffcc2a
+
+.lang-c::before
+    background-color: lightslategray

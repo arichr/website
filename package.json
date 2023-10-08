@@ -1,0 +1,26 @@
+{
+  "type": "module",
+  "name": "arisuchr-website",
+  "version": "1.0.0",
+  "description": "Arisu Wonderland's website",
+  "homepage": "https://github.com/arichr/website",
+  "license": "(AGPL-3.0-only AND CC-BY-SA-4.0)",
+  "author": {
+    "name": "Arisu Wonderland",
+    "email": "arisuchr@riseup.net",
+    "url": "https://nyarisu.eu.org/"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "sass": "^1.69.0",
+    "vite": "^4.4.5",
+    "vite-plugin-html": "^3.2.0"
+  },
+  "private": true
+}
