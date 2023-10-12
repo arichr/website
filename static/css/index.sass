@@ -166,6 +166,7 @@ main
 
     & > li
         display: inline-block
+        margin-right: 0.1em
 
         &:hover > a
             @include container-hover
@@ -212,7 +213,10 @@ main
 
         li
             display: inline-block
-            margin-right: 0.1em
+            margin-right: 0.3em
+
+            &:last-child
+                margin-right: 0
 
         svg
             width: 1.5em
