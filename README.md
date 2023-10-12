@@ -26,4 +26,4 @@ Before you create a new pull request, make sure that your changes:
 ## Attribution
 
 * **Simple Icons**: [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons)
-* **Bootstrap icons**: [twbs/icons](https://github.com/twbs/icons)
+* **Bootstrap Icons**: [twbs/icons](https://github.com/twbs/icons)

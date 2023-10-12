@@ -1,0 +1,80 @@
+// Arisu Wonderland's website.
+// Copyright (C) 2023  Arisu Wonderland
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published
+// by the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+@media screen and (max-width: 1200px)
+    html
+        font-size: initial
+
+    #arichr-glyph-cc-by-sa
+        $glyphColor: #ffe4e4
+        $shadowColor: #7f7f7f
+
+        display: block
+        margin: 1em auto
+        fill: $glyphColor
+        stroke: $glyphColor
+        stroke-width: 0.1em
+
+        & > .shadow
+            fill: $shadowColor
+            stroke: $shadowColor
+
+    #faceid
+        display: flex !important
+        flex-direction: column
+        align-items: center
+        width: auto !important
+        height: auto !important
+        outline: none
+        box-shadow: none
+
+        & > .arrow-1, & > .arrow-2, & > .arrow-text, #social-grid a::after
+            display: none
+
+        &, #social-grid
+            position: initial
+
+        & > .arrow-text
+            font-size: 2em
+            margin: 1em 0
+
+    .container, #social-grid svg
+        padding: 0.9em
+        border-radius: 0
+
+    main
+        display: flex
+        flex-direction: column
+        align-items: center
+        width: 100%
+        padding-top: 0
+
+    #git-grid span
+            display: none
+
+    #repos-list
+        overflow: initial
+
+    .card .providers
+        svg
+            height: 1.7em
+            width: 1.7em
+
+        li
+            margin-right: 0.5em
+
+            &:last-child
+                margin-right: 0

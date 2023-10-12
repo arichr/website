@@ -1,4 +1,3 @@
-/** @type {import('vite').UserConfig} */
 import { createHtmlPlugin } from 'vite-plugin-html';
 import autoprefixer from 'autoprefixer';
 
@@ -8,9 +7,10 @@ const targets = [
     "chrome56",
     "edge15",
     "opera43",
-    "safari12" // safari10 - 'const' is not supported
+    "safari11" // safari10 - 'const' is not supported
 ];
 
+/** @type {import('vite').UserConfig} */
 export default {
     clearScreen: false,
     plugins: [
